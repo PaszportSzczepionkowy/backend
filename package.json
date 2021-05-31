@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaszportSzczepionkowy/backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaszportSzczepionkowy/backend/issues"
+  },
+  "homepage": "https://github.com/PaszportSzczepionkowy/backend#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "mongoose": "^5.12.12",
+    "nodemon": "^2.0.7"
+  }
+}
