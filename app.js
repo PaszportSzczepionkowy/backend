@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
+var szczepionkaRouter = require('./routes/szczepionka/szczepionka');
 
 var cors = require("cors");
 var app = express();
@@ -29,5 +30,6 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 
 app.use('/', indexRouter);
+app.use('/szczepionka', szczepionkaRouter);
 
 module.exports = app;
