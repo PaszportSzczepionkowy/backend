@@ -6,7 +6,6 @@ const szczepionkaSchema = mongoose.Schema({
     name: {type: String, required: true},
     surname: {type: String, required: true},
     date: {type: Date, required: false},
-    didTakeSecondDose: {type: Boolean, required: false},
     secondDoseDate: {type: Date, required: false},
     didTakeAllDoses: {type: Boolean, required: false}
 });
