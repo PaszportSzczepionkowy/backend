@@ -5,6 +5,7 @@ var szczepionka_types = require("../../../utils/types.json")
 
 router.post('/', function(req, res, next) {
     if(!szczepionka_types.types.includes(req.body.type)) {
+        console.log(req.body.type, req.body.pesel)
         res.status(401).json({
             "result": "Nie ma takiej szczepionki, dostępne: " + szczepionka_types.types
         })

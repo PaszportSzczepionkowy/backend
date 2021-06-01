@@ -13,6 +13,19 @@ router.get('/', function(req, res, next) {
     }).catch(err => {
 
     })
+
+
 });
+router.get('/:id', function(req, res, next) {
+    let id = req.params["id"];
+    szczepionka_model.findById(id).exec().then(result => {
+        res.status(200).json(result)
+    }).catch(err => {
+        console.log(err);
+    })
+
+
+});
+
 
 module.exports = router;
