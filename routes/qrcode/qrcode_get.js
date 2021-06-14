@@ -16,16 +16,22 @@ const generateQRCode = async info => {
 }
 
 router.get('/:patientid', function(req, res, next) {
-    let patientid = req.params["patientid"];
-    let patientInfo = [];
-    szczepionka_model.find({patientID: new ObjectId(patientid)}).exec().then(result => {
-        patientInfo = JSON.stringify(result);
-        generateQRCode(patientInfo);
+    try{
+        let patientid = new ObjectId(req.params["patientid"]);
+        let patientInfo = [];
+        szczepionka_model.find({patientID: patientid}).exec().then(result => {
+            patientInfo = JSON.stringify(result);
+            generateQRCode(patientInfo);
 
-        res.status(200).json(result);
-    }).catch(err => {
-        console.log(err);
-     })
+            res.status(200).json(result);
+        }).catch(err => {
+            console.log(err);
+        })
+    }catch{
+        res.json({"result": "Brak danych"})
+    }
+
+
 });
 
 
