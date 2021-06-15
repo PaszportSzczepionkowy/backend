@@ -1,6 +1,6 @@
 # Paszport szczepionkowy - backend
 ## Instalacja i konfiguracja
- #
+
 **npm install** - instaluje biblioteki
 **npm start** - startuje backend
 W **pliku dotenv** znajduje się konfiguracja najważniejszych wartości.
