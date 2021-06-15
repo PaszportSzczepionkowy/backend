@@ -1,20 +1,19 @@
-# Paszport szcepionkowy - backend
-## instalacja i konfiguracja
-npm install - instaluje biblioteki
-npm start - startuje backend
-w pliku dotenv jest konfiguracja najwazniejszych wartosci
-## szablon
-**wszystkie endpointy w folderze route**
+# Paszport szczepionkowy - backend
+## Instalacja i konfiguracja
+ #
+**npm install** - instaluje biblioteki
+**npm start** - startuje backend
+W **pliku dotenv** znajduje się konfiguracja najważniejszych wartości.
+## Szablon
+##### Wszystkie endpointy znajdują się w folderze route.
+#
 
-przyklad: endpoint */szczepionka*  
+**Przykład**: endpoint */szczepionka*  
 
-przy szczepionce dodajemy kolejne endpointy np. /dodaj /get /delete 
-koncowo otrzymamy endpointy /szczepionka/dodaj; /szczepionka/get etc.
+Przy szczepionce dodajemy kolejne endpointy np. /dodaj /get /delete 
+Końcowo otrzymamy endpointy /szczepionka/dodaj, /szczepionka/get, itd.
 
-struktura folderow wyglada tak:
+Struktura folderów wyglada następująco:
 ![zdjecie ze struktura](readme.png)
 
-starajmy sie trzymac jednego jezyka i niech bedzie nim angielski
-(endpointy moga byc po polsku, w kodzie raczej angielski)
-
-w commitach po angielsku tez 8)
+#### Językiem przewodnim jest angielski.
