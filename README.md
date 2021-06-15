@@ -5,7 +5,7 @@
 > **npm start** - startuje backend  
 > W **pliku dotenv** znajduje się konfiguracja najważniejszych wartości.  
 ## Szablon
-##### Wszystkie endpointy znajdują się w folderze route.
+#### Wszystkie endpointy znajdują się w folderze route.
 
 **Przykład**: endpoint */szczepionka*  
 
