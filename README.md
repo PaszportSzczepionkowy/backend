@@ -14,6 +14,7 @@ Przy szczepionce dodajemy kolejne endpointy np. /dodaj /get /delete
 Końcowo otrzymamy endpointy /szczepionka/dodaj, /szczepionka/get, itd.  
 
 Struktura folderów wyglada następująco:  
+   
 ![zdjecie ze struktura](readme.png)  
 
 #### Językiem przewodnim jest angielski.  
