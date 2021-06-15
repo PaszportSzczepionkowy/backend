@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var szczepionkaRouter = require('./routes/szczepionka/szczepionka');
 var qrcodeRouter = require('./routes/qrcode/qrcode');
+var accountRouter = require('./routes/account/account');
 
 var cors = require("cors");
 var app = express();
@@ -33,5 +34,6 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use('/', indexRouter);
 app.use('/szczepionka', szczepionkaRouter);
 app.use('/qrcode', qrcodeRouter);
+app.use('/account', accountRouter);
 
 module.exports = app;

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var szczepionka_model = require("../../models/szczepionka_model");
+var szczepionka_model = require("../../../models/szczepionka_model");
 var ObjectId = require('mongoose').Types.ObjectId;
 var QRCode = require('qrcode');
 
