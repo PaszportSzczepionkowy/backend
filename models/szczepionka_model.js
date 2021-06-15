@@ -5,6 +5,7 @@ const szczepionkaSchema = mongoose.Schema({
     pesel: {type: String, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
+    birthDate: {type: Date, required: true},
     date: {type: Date, required: false},
     secondDoseDate: {type: Date, required: false},
     didTakeAllDoses: {type: Boolean, required: false}
