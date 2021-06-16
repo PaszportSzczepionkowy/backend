@@ -13,6 +13,7 @@ router.post('', ((req, res, next) => {
         bcrypt.compare(req.body.password, result[0].password, (err, status) => {
             if(status) {
                 jwt.sign({
+                    accountID: result[0]._id,
                     email: result[0].email,
                     account_type: result[0].account_type
                 }, process.env.JWT, {expiresIn: "7d"}, (err, token) => {
