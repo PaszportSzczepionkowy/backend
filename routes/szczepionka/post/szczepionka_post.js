@@ -16,23 +16,32 @@ router.post('/', function(req, res, next) {
     jwt.verify(req.body.token, process.env.JWT, (err, decoded) => {
         if(decoded.account_type !== "patient") {
             user_model.count({_id: req.body.accountID}).exec().then(result => {
-                if(result > 0) { // if user does exist then proceed forward
-                    var szczepionka = new szczepionka_model({
-                        accountID: req.body.accountID,
-                        type: req.body.type,
-                        pesel: result.pesel,
-                        name: result.name,
-                        surname: result.surname,
-                        birthDate: result.birthdate,
-                        date: new Date() //creates date object with today's date, since the patient has just got vaccinated
-                    })
+                if(result > 0) { // if user does exist proceed forward
+                    szczepionka_model.count({accountID: req.body.accountID}).exec().then(count => {
+                        if(count === 0) {
+                            user_model.findOneAndUpdate({_id: req.body.accountID}, {$set:{vaccinated:true}}, {new: true}, (err, doc) => {}); // patient has just got vaccinated
 
-                    szczepionka.save().then(result => {
-                        res.status(200).json({
-                            "result": "Dodano szczepionke dla pacjenta " + result.name + " " + result.surname
-                        })
-                    }).catch(err => {
-                        console.log(err)
+                            var szczepionka = new szczepionka_model({
+                                accountID: req.body.accountID,
+                                type: req.body.type,
+                                pesel: result.pesel,
+                                name: result.name,
+                                surname: result.surname,
+                                birthDate: result.birthdate,
+                                date: new Date() //creates date object with today's date, since the patient has just got vaccinated
+                            })
+                            szczepionka.save().then(result => {
+                                res.status(200).json({
+                                    "result": "Dodano szczepionke dla pacjenta"
+                                })
+                            }).catch(err => {
+                                console.log(err)
+                            })
+                        }else {
+                            res.status(200).json({
+                                "result": "Dodano już szczepionke dla tego pacjenta!"
+                            })
+                        }
                     })
                 }else {
                     res.status(200).json({

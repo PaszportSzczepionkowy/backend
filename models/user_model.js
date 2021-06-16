@@ -7,7 +7,8 @@ const userSchema = mongoose.Schema({
     pesel: {type: String, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
-    birthDate: {type: Date, required: true}
+    birthDate: {type: Date, required: true},
+    vaccinated: {type: Boolean, required: true}
 });
 
 module.exports = mongoose.model('User', userSchema);

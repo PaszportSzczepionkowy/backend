@@ -28,7 +28,8 @@ router.post('', ((req, res, next) => {
                             pesel: req.body.pesel,
                             password: hash,
                             account_type: "patient",
-                            birthDate: new Date().setFullYear(req.body.birthDate.substring(0, 4), req.body.birthDate.substring(4, 6), req.body.birthDate.substring(6, 8))
+                            birthDate: new Date().setFullYear(req.body.birthDate.substring(0, 4), req.body.birthDate.substring(4, 6), req.body.birthDate.substring(6, 8)),
+                            vaccinated: false
                         })
                         user.save().then(result => { // save user to db
                             return res.status(200).json({"result": "Zarejestrowano użytkownika!"})
