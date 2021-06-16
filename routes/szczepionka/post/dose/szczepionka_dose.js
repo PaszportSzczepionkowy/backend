@@ -11,7 +11,7 @@ router.post('/', function(req, res, next) {
                 result.didTakeAllDoses = true
                 result.save(r => {
                     res.status(200).json({
-                        "result": "Dodano drugą dawke szczepionki"
+                        "result": "Dodano drugą dawke szczepionki."
                     })
                 }).catch(err => {
                 })
