@@ -3,6 +3,7 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyparser = require("body-parser")
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var szczepionkaRouter = require('./routes/szczepionka/szczepionka');
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(bodyparser.json())
 
 
 app.use('/', indexRouter);
