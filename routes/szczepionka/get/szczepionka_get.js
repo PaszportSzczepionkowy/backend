@@ -22,7 +22,7 @@ router.get('/:id', function(req, res, next) {
     let id = req.params["id"];
     try{
         let idObj =  mongoose.Types.ObjectId(id);
-        szczepionka_model.find({_id: idObj}).exec().then(result => {
+        szczepionka_model.find({accountID: idObj}).exec().then(result => {
             res.status(200).json(result)
         }).catch(err => {
             console.log(err);
