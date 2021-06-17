@@ -18,20 +18,22 @@ router.post('/', function(req, res, next) {
                     user_model.find({_id: decoded.accountID}).exec().then(user => {
                         finalobj = {vaccine, user};
                         QRCode.toDataURL(JSON.stringify(finalobj), function (err, code) {
-                            if(err) return console.log("error occurred")
-                            const img = Buffer.from(code.split(",")[1], 'base64');
-                            res.writeHead(200, {'Content-Type': 'image/png', 'Content-Length': img.length});
-                            res.end(img); //send qr
+                            res.status(200).json({"image": code})
+                            // if(err) return console.log("error occurred")
+                            // const img = Buffer.from(code.split(",")[1], 'base64');
+                            // res.writeHead(200, {'Content-Type': 'image/png', 'Content-Length': img.length});
+                            // res.end(img); //send qr
                         })
                     })
                 })
             }else { // hasn't been vaccinated
                 user_model.find({_id: decoded.accountID}).exec().then(user => {
                     QRCode.toDataURL(JSON.stringify(user), function (err, code) {
-                        if(err) return console.log("error occurred")
-                        const img = Buffer.from(code.split(",")[1], 'base64');
-                        res.writeHead(200, {'Content-Type': 'image/png', 'Content-Length': img.length});
-                        res.end(img); //send qr
+                        res.status(200).json({"image": code})
+                        // if(err) return console.log("error occurred")
+                        // const img = Buffer.from(code.split(",")[1], 'base64');
+                        // res.writeHead(200, {'Content-Type': 'image/png', 'Content-Length': img.length});
+                        // res.end(img); //send qr
                     })
                 })
             }
