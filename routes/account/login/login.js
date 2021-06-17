@@ -18,7 +18,7 @@ router.post('', ((req, res, next) => {
                     account_type: result[0].account_type
                 }, process.env.JWT, {expiresIn: "7d"}, (err, token) => {
                     console.log(token)
-                    res.status(200).json({"token": token})
+                    res.status(200).json({"token": token, "account_type": result[0].account_type})
                 })
             }else {
                 res.status(409).json({"result": "Złe hasło/email!"})
