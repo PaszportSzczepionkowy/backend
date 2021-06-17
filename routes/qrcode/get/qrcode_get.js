@@ -8,7 +8,7 @@ var fs = require("fs");
 var path = require("path");
 var jwt = require("jsonwebtoken")
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     jwt.verify(req.body.token, process.env.JWT, (err, decoded) => {
         if(err) return res.status(401).json({"result": "Zły token!"})
         var finalobj;
